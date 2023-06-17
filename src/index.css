@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  margin: 0;
+  padding: 0;
+}
+.nav__btn {
+  background: #0ca678;
+}
+.toggles {
+  position: relative;
+}
+.delete__and__edit {
+  position: absolute;
+  right: -1000px;
+  top: 0;
+}
+.toggle__btns.delete__and__edit {
+  /* right: 0; */
+  position: relative;
+  right: 0;
+}
