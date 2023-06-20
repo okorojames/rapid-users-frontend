@@ -48,6 +48,7 @@ const Home = () => {
         <></>
       )}
       <div className="flex flex-col gap-3 user__row mb-6">
+        {users && users.length === 0 ? <div>No user</div> : <></>}
         {users && users.map((user) => <UserCard key={user._id} user={user} />)}
       </div>
     </>

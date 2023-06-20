@@ -66,14 +66,14 @@ const UpdateUser = () => {
               className="form__input"
               type="text"
               placeholder="title"
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => setTitle(e.target.value.trimStart())}
               value={title}
             />
             <textarea
               className="form__input resize-none"
               placeholder="description here..."
               rows="8"
-              onChange={(e) => setDesc(e.target.value)}
+              onChange={(e) => setDesc(e.target.value.trimStart())}
               value={desc}
             ></textarea>
             <button

@@ -44,13 +44,13 @@ const NewUser = () => {
             className="form__input"
             type="text"
             placeholder="title"
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value.trim())}
           />
           <textarea
             className="form__input resize-none"
             placeholder="description here..."
             rows="8"
-            onChange={(e) => setDesc(e.target.value)}
+            onChange={(e) => setDesc(e.target.value.trim())}
           ></textarea>
           <button
             className="rounded-md self-center py-2 px-4 text-slate-50"
