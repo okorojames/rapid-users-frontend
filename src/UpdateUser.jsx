@@ -20,7 +20,9 @@ const UpdateUser = () => {
   // fetch single user with the id
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch(`http://localhost:4000/api/rapid/user/${id}`);
+      const res = await fetch(
+        `https://rapid-user.onrender.com/api/rapid/user/${id}`
+      );
       const data = await res.json();
       setData(data);
       setTitle(data.title);
@@ -34,7 +36,7 @@ const UpdateUser = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        `http://localhost:4000/api/rapid/update-user/${id}`,
+        `https://rapid-user.onrender.com/api/rapid/update-user/${id}`,
         {
           method: "PATCH",
           headers: {

@@ -14,13 +14,16 @@ const NewUser = () => {
   const handlePostUser = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:4000/api/rapid/post-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user_data),
-      });
+      const res = await fetch(
+        "https://rapid-user.onrender.com/api/rapid/post-user",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user_data),
+        }
+      );
       if (res.ok) {
         navigate("/");
       }

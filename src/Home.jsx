@@ -12,7 +12,7 @@ const Home = () => {
     data: users,
     loading,
     error,
-  } = useFetch("http://localhost:4000/api/rapid/users/");
+  } = useFetch("https://rapid-user.onrender.com/api/rapid/users/");
 
   // handle re-fetch data again
   const handleReFetch = async () => {

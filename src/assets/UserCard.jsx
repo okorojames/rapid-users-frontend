@@ -18,7 +18,7 @@ const UserCard = ({ user }) => {
   const handleDeleteUser = async () => {
     try {
       const res = await fetch(
-        `http://localhost:4000/api/rapid/delete-user/${user._id}`,
+        `https://rapid-user.onrender.com/api/rapid/delete-user/${user._id}`,
         {
           method: "DELETE",
         }
