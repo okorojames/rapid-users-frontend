@@ -17,10 +17,8 @@ const Home = () => {
   // handle re-fetch data again
   const handleReFetch = async () => {
     try {
-      const { data: users } = useFetch(
-        "http://localhost:4000/api/rapid/users/"
-      );
       setDeleted(!deleted);
+      location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -33,7 +31,7 @@ const Home = () => {
       {error && <p>{error}</p>}
       {deleted === true ? (
         <div className="overlay_wrapper">
-          <div className="overlay bg-slate-500 fixed top-0 left-0 right-0 bottom-0 z-30 opacity-80"></div>
+          <div className="overlay fixed top-0 left-0 right-0 bottom-0 z-30 opacity-80"></div>
           <div className="overlay_text flex flex-col gap-4 fixed z-50 bg-slate-50 py-5 px-5 rounded-md">
             <p className=" text-xl font-bold capitalize">
               User has been sucessfully deleted
