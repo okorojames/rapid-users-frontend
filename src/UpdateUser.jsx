@@ -34,23 +34,37 @@ const UpdateUser = () => {
   // handle post user upadte details
   const handleUpdateUser = async (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch(
-        `https://rapid-user.onrender.com/api/rapid/update-user/${id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(new_user_data),
+    if (title.length === null || desc.length === null) {
+      return;
+    } else {
+      try {
+        const res = await fetch(
+          `https://rapid-user.onrender.com/api/rapid/update-user/${id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(new_user_data),
+          }
+        );
+        if (res.ok) {
+          navigate("/");
         }
-      );
-      if (res.ok) {
-        navigate("/");
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
     }
+  };
+
+  // handle title change event
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  // handle desc change event
+  const handleDescChange = (e) => {
+    setDesc(e.target.value);
   };
 
   // dislaying the update user form
@@ -66,14 +80,14 @@ const UpdateUser = () => {
               className="form__input"
               type="text"
               placeholder="title"
-              onChange={(e) => setTitle(e.target.value.trimStart())}
+              onChange={handleTitleChange}
               value={title}
             />
             <textarea
               className="form__input resize-none"
               placeholder="description here..."
               rows="8"
-              onChange={(e) => setDesc(e.target.value.trimStart())}
+              onChange={handleDescChange}
               value={desc}
             ></textarea>
             <button

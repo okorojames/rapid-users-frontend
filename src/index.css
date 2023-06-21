@@ -20,6 +20,10 @@ body::-webkit-scrollbar-thumb {
 .nav__btn {
   background: #0ca678;
 }
+.home_section {
+  position: relative;
+  min-height: calc(90vh - 85px);
+}
 .toggles {
   position: relative;
 }
@@ -55,4 +59,25 @@ body::-webkit-scrollbar-thumb {
   left: 50%;
   box-shadow: 0 0 0 1.5px rgba(107, 114, 128, 0.65);
   transform: translate(-50%, -50%);
+}
+.error_display,
+.no_data,
+.loading_gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading_gif {
+  width: 100px;
+}
+.error_display,
+.no_data {
+  font-size: 1.4rem;
+}
+@media screen and (max-width: 576px) {
+  .overlay_text {
+    font-size: 0.8rem;
+    width: 80%;
+  }
 }

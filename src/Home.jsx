@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import useFetch from "./useFetch";
 import UserCard from "./assets/UserCard";
 import { DeletedContext } from "./DeletedContext";
+import loadingGif from "./assets/loading.gif";
 
 const Home = () => {
   // states
@@ -26,14 +27,14 @@ const Home = () => {
 
   // rendering the data
   return (
-    <>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+    <article className="home_section">
+      {loading && <img src={loadingGif} className="loading_gif" />}
+      {error && <p className="error_display">{error}</p>}
       {deleted === true ? (
         <div className="overlay_wrapper">
           <div className="overlay fixed top-0 left-0 right-0 bottom-0 z-30 opacity-80"></div>
-          <div className="overlay_text flex flex-col gap-4 fixed z-50 bg-slate-50 py-5 px-5 rounded-md">
-            <p className=" text-xl font-bold capitalize">
+          <div className="overlay_text flex flex-col gap-4 text-center fixed z-50 bg-slate-50 py-5 px-5 rounded-md">
+            <p className=" text-xl sm:text-sm font-bold capitalize">
               User has been sucessfully deleted
             </p>
             <button
@@ -48,10 +49,14 @@ const Home = () => {
         <></>
       )}
       <div className="flex flex-col gap-3 user__row mb-6">
-        {users && users.length === 0 ? <div>No user</div> : <></>}
+        {users && users.length === 0 ? (
+          <div className="no_data">No user</div>
+        ) : (
+          <></>
+        )}
         {users && users.map((user) => <UserCard key={user._id} user={user} />)}
       </div>
-    </>
+    </article>
   );
 };
 
